@@ -36,6 +36,8 @@ var falloffs = [0.5, 0.5, 0.5, 0.45];
 function generateSentence() {
   newWeight = originalWeight;
   // random numbers
+  seed = random(0, 10000);
+  randomSeed(seed);
   angle = radians(floor(random() * (maxAngle - minAngle + 1) + minAngle));
   len = floor(random() * (originalLen - 156) + 155);
   var ruleNum = floor(random() * (4));
@@ -119,10 +121,17 @@ function setup() {
   params = getURLParams();
   if(params.seed) {
     seed = params.seed;
+    randomSeed(seed);
+    createCanvas(1280, 500);
+    background(51);
+    angle = radians(25.7);
+    turtleDraw();
+    generateSentence();
+    return;
   } else {
     seed = random(0, 10000);
+    randomSeed(seed);
   }
-  randomSeed(seed);
   createCanvas(1280, 500);
   background(51);
   angle = radians(25.7);
