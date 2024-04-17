@@ -128,10 +128,11 @@ function setup() {
   angle = radians(25.7);
   turtleDraw();
   var button = createButton("generate");
+  var copy = createButton("copy link");
   button.position((width / 2) - 30, height + 15);
   button.mousePressed(generateSentence);
-  button.position((width / 2) - 30, height + 45);
-  button.mousePressed(createLink);
+  copy.position((width / 2) - 30, height + 45);
+  copy.mousePressed(createLink);
   textSize(25);
   
   iterationSlider = createSlider(1, 8, 5);
