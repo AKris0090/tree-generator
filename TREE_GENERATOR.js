@@ -110,7 +110,7 @@ function turtleDraw() {
 }
 
 function createLink() {
-  console.log("http://ajnkrishnan.me/tree-generator/?seed=" + seed);
+  console.log("http://ajnkrishnan.me/tree-generator/?seed=" + seed + "&numIterations=" + iterations);
 }
 
 let iterationSlider;
@@ -123,6 +123,7 @@ function setup() {
     createCanvas(1280, 500);
     background(51);
     angle = radians(25.7);
+    iterations = params.numIterations;
     turtleDraw();
     generateSentence();
     return;
