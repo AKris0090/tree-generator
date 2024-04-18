@@ -34,6 +34,10 @@ var axioms = ["X", "X", "X", "FX"];
 var falloffs = [0.5, 0.5, 0.5, 0.45];
 
 function generateSentence() {
+  if(!params.seed) {
+    seed = random(0, 10000);
+    randomSeed(seed);
+  }
   newWeight = originalWeight;
   // random numbers
   angle = radians(floor(random() * (maxAngle - minAngle + 1) + minAngle));
@@ -109,8 +113,20 @@ function turtleDraw() {
   }
 }
 
+// Copy and paste this function in to your sketch:
+function copyToClipboard(text) {
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}
+
 function createLink() {
-  console.log("http://ajnkrishnan.me/tree-generator/?seed=" + seed + "&numIterations=" + iterations);
+  let url = "http://ajnkrishnan.me/tree-generator/?seed=" + seed + "&numIterations=" + iterations;
+  console.log(url);
+  copyToClipboard(url);
 }
 
 let iterationSlider;
@@ -127,9 +143,6 @@ function setup() {
     turtleDraw();
     generateSentence();
     return;
-  } else {
-    seed = random(0, 10000);
-    randomSeed(seed);
   }
   createCanvas(1280, 500);
   background(51);
@@ -151,6 +164,8 @@ function setup() {
 function draw() {
   stroke(0);
   fill(255);
-  iterations = iterationSlider.value();
-  text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 20);
+  if(!params.seed) {
+    iterations = iterationSlider.value();
+    text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 20);
+  }
 }
