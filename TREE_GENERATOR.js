@@ -36,8 +36,6 @@ var falloffs = [0.5, 0.5, 0.5, 0.45];
 function generateSentence() {
   newWeight = originalWeight;
   // random numbers
-  seed = random(0, 10000);
-  randomSeed(seed);
   angle = radians(floor(random() * (maxAngle - minAngle + 1) + minAngle));
   len = floor(random() * (originalLen - 156) + 155);
   var ruleNum = floor(random() * (4));
