@@ -136,7 +136,7 @@ function setup() {
   if(params.seed) {
     seed = params.seed;
     randomSeed(seed);
-    createCanvas(1280, 500);
+    createCanvas(window.innerWidth, window.innerHeight - 25);
     background(51);
     angle = radians(25.7);
     iterations = params.numIterations;
@@ -170,7 +170,8 @@ function draw() {
   fill(255);
   if(!params.seed) {
     iterations = iterationSlider.value();
-    text('make your own tree at: https://ajnkrishnan.me/tree-generator/', 15, 50);
     text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 50);
+  } else {
+    text('make your own tree at: https://ajnkrishnan.me/tree-generator/', 15, 50);
   }
 }
