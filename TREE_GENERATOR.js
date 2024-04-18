@@ -1,6 +1,6 @@
 var axiom = "X";
 var angle;
-var originalLen = 200;
+var originalLen = 450;
 var falloff = 0.5;
 var weightFalloff = 0.2;
 var iterations = 8;
@@ -144,20 +144,24 @@ function setup() {
     generateSentence();
     return;
   }
-  createCanvas(1280, 500);
+  createCanvas(window.innerWidth, window.innerHeight - 25);
   background(51);
   angle = radians(25.7);
   turtleDraw();
   var button = createButton("generate");
   var copy = createButton("copy link");
-  button.position((width / 2) - 30, height + 15);
+  button.position((width) - 425, 100);
   button.mousePressed(generateSentence);
-  copy.position((width / 2) - 30, height + 45);
+  button.size(150, 60);
+  button.style('background-color: #0F0F0F; border-radius: 25%; color: white;')
+  copy.position((width) - 250, 100);
   copy.mousePressed(createLink);
+  copy.size(150, 60);
+  copy.style('background-color: #0F0F0F; border-radius: 25%; color: white;')
   textSize(25);
   
   iterationSlider = createSlider(1, 8, 5);
-  iterationSlider.position(875, 20);
+  iterationSlider.position(width - 450, 50);
 }
 
 
@@ -166,6 +170,7 @@ function draw() {
   fill(255);
   if(!params.seed) {
     iterations = iterationSlider.value();
-    text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 20);
+    text('make your own tree at: https://ajnkrishnan.me/tree-generator/', 15, 50);
+    text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 50);
   }
 }
