@@ -167,13 +167,14 @@ function setup() {
 
 function draw() {
   stroke(0);
-  fill(0);
   if(!params.seed) {
     fill(255, 248, 231);
     rect(width - 475, 25, 425, 150, 25);
+    fill(0);
     iterations = iterationSlider.value();
     text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 50);
   } else {
+    fill(255);
     text('make your own tree at: https://ajnkrishnan.me/tree-generator/', 15, 50);
   }
 }
