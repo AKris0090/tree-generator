@@ -167,8 +167,10 @@ function setup() {
 
 function draw() {
   stroke(0);
-  fill(255);
+  fill(0);
   if(!params.seed) {
+    fill(255, 248, 231);
+    rect(width - 475, 25, 425, 150, 25);
     iterations = iterationSlider.value();
     text('number of iterations', iterationSlider.x + iterationSlider.width + 15, iterationSlider.height + 50);
   } else {
